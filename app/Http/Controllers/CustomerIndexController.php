@@ -84,11 +84,16 @@ class CustomerIndexController extends Controller
         }
         return redirect('/');
     }
-    function orders(){
+    function orders(Request $req){
+        if($req->session()->has('user')){
         $user_id=Session::get('user')['id'];
         $data=DB::table('orders')->join('sub_services','orders.sub_service_id','=','sub_services.id')
         ->where('orders.user_id',$user_id)->select('sub_services.*','orders.*')->get();
         return view('customer.orders',compact('data'));
+        }
+        else{
+            return redirect('/loginIndex');   
+        }
     }
     function cancelOrder($id){
         $order_id=$id;

@@ -42,7 +42,7 @@
       <li class="dropdown ml-2 mt-1 mr-3">
         <li class="nav-item">
           @if (Session::has('admin'))
-            <a class="nav-link" href="/logout">Logout({{Session::get('admin')['name']}})</a>  
+            <a class="nav-link" href="/adminlogout">Logout({{Session::get('admin')['name']}})</a>  
           @else
             <a class="nav-link" href="/loginIndex">Login</a>
           @endif

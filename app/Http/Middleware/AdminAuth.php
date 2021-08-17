@@ -16,10 +16,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->path()=='login' && $request->session()->has('admin')){
-            return redirect('/services/list');
-        }
-        else{
+        if(!$request->session()->has('admin')){
             return redirect('/notAccess');
         }
         return $next($request);

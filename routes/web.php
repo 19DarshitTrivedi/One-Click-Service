@@ -5,6 +5,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CustomerIndexController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ServiceProviderController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,14 @@ Route::get('/loginIndex',[LoginController::class,'index'])->name('login.index');
 Route::post('/login', [LoginController::class,'login'])->name('login');
 Route::get('/logout',function(){
     Session::forget('user');
+    return redirect('/login');
+});
+Route::get('/adminlogout',function(){
+    Session::forget('admin');
+    return redirect('/login');
+});
+Route::get('/providerlogout',function(){
+    Session::forget('provider');
     return redirect('/login');
 });
 Route::get('/notAccess',function(){

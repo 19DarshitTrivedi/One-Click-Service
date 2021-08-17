@@ -16,10 +16,7 @@ class ProviderAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->path()=='login' && $request->session()->has('provider')){
-            return redirect('/provider/index');
-        }
-        else{
+        if(!$request->session()->has('provider')){
             return redirect('/notAccess');
         }
         return $next($request);

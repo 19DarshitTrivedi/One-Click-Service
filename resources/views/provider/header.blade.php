@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                   @if (Session::has('provider'))
-                    <a class="nav-link" href="/logout">Logout({{Session::get('provider')['name']}})</a>  
+                    <a class="nav-link" href="/providerlogout">Logout({{Session::get('provider')['name']}})</a>  
                   @else
                     <a class="nav-link" href="/loginIndex">Login</a>
                   @endif
